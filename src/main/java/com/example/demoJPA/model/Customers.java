@@ -2,6 +2,7 @@ package com.example.demoJPA.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
@@ -10,7 +11,7 @@ import lombok.*;
 public class Customers {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
 
     String username;
@@ -28,5 +29,7 @@ public class Customers {
     String postalCode;
 
     String country;
+
+
 }
 

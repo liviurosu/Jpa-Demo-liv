@@ -5,6 +5,8 @@ import com.example.demoJPA.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class ProductsService {
     @Autowired
@@ -12,5 +14,10 @@ public class ProductsService {
 
     public void InsertProduct(Products p){
         productsRepository.save(p);
+    }
+
+    public ArrayList<Products> getAllProducts(){
+        ArrayList<Products> produse = (ArrayList<Products>) productsRepository.findAll();
+        return produse;
     }
 }

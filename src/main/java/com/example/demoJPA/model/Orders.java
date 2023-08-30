@@ -1,10 +1,9 @@
 package com.example.demoJPA.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.Date;
 
@@ -12,17 +11,19 @@ import java.util.Date;
 @Data
 public class Orders {
     @Id
-    @GeneratedValue
-    Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
-    Date order_date;
+    private Date order_date;
 
-    Date shipped_date;
+    private Date shipped_date;
 
-    String status;
+    private String status;
 
-    String comments;
+    private String comments;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "customer_id", nullable = false)
+    Customers customer;
 
-    Integer customer_id;
 
 }

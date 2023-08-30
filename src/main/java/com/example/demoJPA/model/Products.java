@@ -2,6 +2,7 @@ package com.example.demoJPA.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import lombok.Setter;
 @Data
 public class Products {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     String code;
 
     String name;
