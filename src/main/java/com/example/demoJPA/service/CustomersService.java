@@ -28,7 +28,6 @@ public class CustomersService {
     }
     public PostalDetailsUserDTO getPostalDetailsUserDTO(String username){
         Customers c = customersRepository.findByName(username);
-        System.out.println(c);
         PostalDetailsUserDTO postalDetailsUserDTO = new PostalDetailsUserDTO();
         postalDetailsUserDTO.setAddress(c.getAddress());
         postalDetailsUserDTO.setCity(c.getCity());

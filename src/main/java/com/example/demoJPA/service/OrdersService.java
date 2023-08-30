@@ -19,19 +19,18 @@ public class OrdersService {
         ordersRepository.save(o);
     }
 
-    public Orders getOrdersById(int id)
+    public ArrayList<Orders> getOrders(int id)
     {
-        return this.ordersRepository.findById(id).orElse(null);
+        return this.ordersRepository.getAllOrdersById(id);
     }
 
     public ArrayList<Orders> getAllOrders(){
         ArrayList<Orders> o = (ArrayList<Orders>) ordersRepository.findAll();
         return o;
     }
-    public List<Orders> getAllOrdersByCustomerId(Integer customerId) {
-        return ordersRepository.findAllById(Collections.singleton(customerId));
-
-    }
-
+//    public List<Orders> getAllOrdersByCustomerId(Integer customerId) {
+//        return ordersRepository.findAllById(Collections.singleton(customerId));
 
 }
+
+

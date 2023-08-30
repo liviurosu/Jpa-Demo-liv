@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,9 +20,10 @@ public class OrdersController {
 
 
     @GetMapping(value="/customer/{id}")
-    public List<Orders> getAllOrdersByCustomerId(@PathVariable Integer id){
-        return ordersService.getAllOrdersByCustomerId(id);
+    public ArrayList<Orders> getOrdersById(@PathVariable(name="id") int id){
+        return this.ordersService.getOrders(id);
     }
+
 
 
 
